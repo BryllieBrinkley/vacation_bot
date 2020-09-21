@@ -1,42 +1,45 @@
+#helps choice function
 from random import choice
 
-#def get_bot_response
-#user_response = input("Please enter your favorite weather: ")
-
-#These are lists of places and one will be randomly called from a list when the user enters his/her corresponding favorite weather
-rainy_places = ["Mawsynram, Meghalaya, India", "Cropp River, New Zealand", "Sinchaun Province, China", " Haleakala Volcano National Park"]
-sunny_places = ["Phuket, Thailand", "Havana, Cuba", "Rio de Janeiro, Brazil", "Costa Del Sol, Spain"]
-cloudy_places = ["Seattle, Washington", "Torshavn, Faroe Islands", "Dikson, Russia", "Sao Joaquim, Brazil"]
-windy_places = ["Patagonia","Amarillo, Texas", "Mount Everest", "Barrow, Alaska"]
-
-
-# loop displays bot response w vacation suggestion
+#get_bot_response
 def favorite_weather(user_respone):
-  
+
+  #atleast 2 lists that store 3 unique responses
+  bot_response_rainy = ["Mawsynram, Meghalaya, India", "Cropp River, New Zealand", "Sinchaun Province, China", " Haleakala Volcano National Park"]
+  bot_response_sunny = ["Phuket, Thailand", "Havana, Cuba", "Rio de Janeiro, Brazil", "Costa Del Sol, Spain"]
+  bot_response_cloudy = ["Seattle, Washington", "Torshavn, Faroe Islands", "Dikson, Russia", "Sao Joaquim, Brazil"]
+  bot_response_windy = ["Patagonia","Amarillo, Texas", "Mount Everest", "Barrow, Alaska"]
+
+  #returns string w chatbot response using conditionals
   if user_respone == "rainy":
-    return print("You should visit " + choice(rainy_places) + ".")
-    
+    print("You should visit " + choice(bot_response_rainy) + ".")
+    #used choice()
+
   elif user_respone == "sunny":
-    return print("You should visit " + choice(sunny_places) + ".")
-    
+    return print("You should visit " + choice(bot_response_sunny) + ".")
+
   elif user_respone == "cloudy":
-    return print("You should visit " + choice(cloudy_places) + ".")
+    return print("You should visit " + choice(bot_response_cloudy) + ".")
     
   elif user_respone == "windy":
-    return print("You should visit " + choice(windy_places) + ".")
+    return print("You should visit " + choice(bot_response_windy) + ".")
     
   else:
     return print("Sorry I don't have a suggestion for a vacation.")
+  #function successfully prints out a chatbot response to user input.
 
-#Instrutions for User / Topic/ Greeting
+#Greet user
 print("Welcome to the Vacation Planner Chat Bot!")
+
+#Instructions / Expected Input
 print("Please put in your favorite weather \n(sunny, rainy, cloudy, or windy) and the bot will \n generate the vaction of a lifetime!")
 
 #TODO: we want to keep repeating until the user enters "done" what should we put here?
 while True:
   user_response = input("What is your favorite weather?: ")
-# Quits program when user responds with 'done'
+  
   if user_response == 'done':
     break
+# Quits program when user responds with 'done'    
     bot_response = favorite_weather(user_response)
   favorite_weather(user_response)
